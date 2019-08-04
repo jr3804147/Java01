@@ -20,7 +20,7 @@
 
         <activity android:name="com.bliss.csc.englishVoca10.ActivityStudyA"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="portrait"/>
         <activity android:name="com.bliss.csc.englishVoca10.ActivityStudy2"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="landscape"/>

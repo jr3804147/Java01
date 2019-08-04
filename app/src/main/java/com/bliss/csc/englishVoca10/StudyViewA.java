@@ -199,6 +199,7 @@ public class StudyViewA extends SurfaceView implements Callback{
 
         // 카카오 문제보내기 버튼
         btnKakaoQSending = new MyButtonA(Width - btnWordSelection.w * 11, btnNum1.y + btnNum1.h * 2 + 1, 33, 0);
+//        btnKakaoQSending = new MyButtonA(btnWordSelection.x + 70 + 50, btnWordSelection.y + btnWordSelection.h * 15, 33, 0);
 
         btnSub1 = new MyButtonA(30 + 10, btnWordSelection.y + btnWordSelection.h * 2 + 5, 0,1);
         btnSub2 = new MyButtonA(btnSub1.x + btnSub1.w * 2, btnSub1.y, 1,1);

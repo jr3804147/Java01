@@ -48,7 +48,8 @@ public class MyButtonA {
                 //다음문제, 다시풀기 버튼 아이콘, 카카오톡 보내기 아이콘, 단어장등록 아이콘
                 if (whichPic == 12 || whichPic == 13 || whichPic == 33 || whichPic == 23) {
                     int xWidth = StudyViewA.Width / 5;
-                    int yWidth = StudyViewA.Height / 7;
+//                  int yWidth = StudyViewA.Height / 7;
+                    int yWidth = StudyViewA.Height / 21;
 
                     buttonImage[i] = Bitmap.createScaledBitmap(buttonImage[i], xWidth, yWidth, true);
                 }
