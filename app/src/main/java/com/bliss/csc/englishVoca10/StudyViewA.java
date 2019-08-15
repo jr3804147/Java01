@@ -95,7 +95,7 @@ public class StudyViewA extends SurfaceView implements Callback{
     MyButtonA btnNum5;  //btn : number5 사용안함
     MyButtonA btnPreviousQuestion;
 
-    String whichSubject="선택단어 1";;
+    String whichSubject="선택단어 3";;
 
     //sub menu
     MyButtonA btnSub1;
@@ -237,7 +237,7 @@ public class StudyViewA extends SurfaceView implements Callback{
         answero = Bitmap.createScaledBitmap(answero, xxx, xxx, true);
         explain = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.explain);
 
-        explain = Bitmap.createScaledBitmap(explain, Width / 11, Height / 7, true);
+        explain = Bitmap.createScaledBitmap(explain, Width / 11, Height / 14, true);
 
         cap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.cap);
         cap = Bitmap.createScaledBitmap(cap, Width / 12, Height / 14, true);
@@ -311,6 +311,7 @@ public class StudyViewA extends SurfaceView implements Callback{
         Paint paint2 = new Paint();
 
         Paint paint3 = new Paint();
+        Paint paint4 = new Paint();
 
 
         public StudyThread(SurfaceHolder holder, Context context) {
@@ -327,9 +328,14 @@ public class StudyViewA extends SurfaceView implements Callback{
             paint3.setAntiAlias(true);
             paint3.setTypeface(Typeface.create("", Typeface.BOLD));
 
+            paint4.setColor(Color.WHITE);
+            paint4.setAntiAlias(true);
+            paint4.setTypeface(Typeface.create("", Typeface.BOLD));
+
             paint.setTextSize(TypedValue.COMPLEX_UNIT_DIP);
             paint2.setTextSize(35);
             paint3.setTextSize(40);
+            paint4.setTextSize(60);
         }
 
         public void setRunning(boolean b) {
@@ -360,18 +366,18 @@ public class StudyViewA extends SurfaceView implements Callback{
                 if (questionNumber < 0) questionNumber = 0;
 
                 canvas.drawText(FileSplit0.questionNum[questionNumber][0],
-                        btnWordSelection.x + btnNum1.w, btnWordSelection.y + btnWordSelection.h * 3, paint); //문제번호
+                        btnWordSelection.x + btnNum1.w, btnWordSelection.y + btnWordSelection.h * 3.5f, paint4); //문제번호
                 canvas.drawText(FileSplit0.questionNum[questionNumber][1],
-                        btnWordSelection.x + btnNum1.w * 3, btnWordSelection.y + btnWordSelection.h * 3, paint); //문제
+                        btnWordSelection.x + btnNum1.w * 3.5f, btnWordSelection.y + btnWordSelection.h * 3.5f, paint4); //문제
 
                 canvas.drawText(FileSplit0.questionNum[questionNumber][2],
-                        btnWordSelection.x + btnNum1.w * 6, btnNum1.y + btnNum1.w + btnNum1.w/2, paint); //1
+                        btnWordSelection.x + btnNum1.w * 6, btnNum1.y + btnNum1.w + btnNum1.w/2, paint4); //1
                 canvas.drawText(FileSplit0.questionNum[questionNumber][3],
-                        btnWordSelection.x + btnNum1.w * 6, btnNum2.y + btnNum1.w + btnNum1.w/2, paint); //2
+                        btnWordSelection.x + btnNum1.w * 6, btnNum2.y + btnNum1.w + btnNum1.w/2, paint4); //2
                 canvas.drawText(FileSplit0.questionNum[questionNumber][4],
-                        btnWordSelection.x + btnNum1.w * 6, btnNum3.y + btnNum1.w + btnNum1.w/2, paint); //3
+                        btnWordSelection.x + btnNum1.w * 6, btnNum3.y + btnNum1.w + btnNum1.w/2, paint4); //3
                 canvas.drawText(FileSplit0.questionNum[questionNumber][5],
-                        btnWordSelection.x + btnNum1.w * 6, btnNum4.y + btnNum1.w + btnNum1.w/2, paint);  //4
+                        btnWordSelection.x + btnNum1.w * 6, btnNum4.y + btnNum1.w + btnNum1.w/2, paint4);  //4
 
             }
 
@@ -382,12 +388,11 @@ public class StudyViewA extends SurfaceView implements Callback{
                 canvas.drawBitmap(btnNum3.button_img, btnNum3.x, btnNum3.y, null);
                 canvas.drawBitmap(btnNum4.button_img, btnNum4.x, btnNum4.y, null);
 
-                canvas.drawBitmap(btnKakaoQSending.button_img, btnKakaoQSending.x, btnKakaoQSending.y, null);
+//                canvas.drawBitmap(btnKakaoQSending.button_img, btnKakaoQSending.x, btnKakaoQSending.y, null);
+                canvas.drawBitmap(btnKakaoQSending.button_img, btnKakaoQSending.x, Width *0.50f, null);
             }
 
             if (submenuOk == 0 && submenuOk2 == 0) {
-                canvas.drawBitmap(btnWordSelection.button_img, btnWordSelection.x, btnWordSelection.y, null);
-                canvas.drawBitmap(btnWordSelection.button_img, btnWordSelection.x, btnWordSelection.y, null);
                 canvas.drawBitmap(btnWordSelection.button_img, btnWordSelection.x, btnWordSelection.y, null);
 
                 canvas.drawBitmap(btnMyNote.button_img, btnMyNote.x, btnMyNote.y, null);
@@ -423,8 +428,10 @@ public class StudyViewA extends SurfaceView implements Callback{
 
 
             if (submenuOk == 0 && submenuOk2 == 0) {
-                canvas.drawText(whichSubject, Width / 2, btnExit.h, paint2);
-                canvas.drawText("맞은 개수: " + Integer.toString(oNumber) + "개  틀린 개수: " + Integer.toString(xNumber) + "개", Width / 2, btnExit.h * 2, paint2);
+//                canvas.drawText(whichSubject, Width / 2, btnExit.h, paint2);
+//                canvas.drawText("맞은 개수: " + Integer.toString(oNumber) + "개  틀린 개수: " + Integer.toString(xNumber) + "개", Width / 2, btnExit.h * 2, paint2);
+                canvas.drawText(whichSubject, Width *0.1f, Width *0.6f, paint4);
+                canvas.drawText("맞은 개수: " + Integer.toString(oNumber) + "개  틀린 개수: " + Integer.toString(xNumber) + "개", Width *0.1f, Width *0.7f, paint4);
             }
 
             if (answerButton == 1 && dicOk == 0) {
@@ -441,9 +448,12 @@ public class StudyViewA extends SurfaceView implements Callback{
                     canvas.drawBitmap(btnWordSave.button_img, btnWordSave.x, btnWordSave.y, null);   // 단어장풀기
 
                 //답 해설
-                canvas.drawBitmap(explain, 8, btnNum4.y + btnNum4.h * 2 - 50, null);  //해설그림
-                canvas.drawText(FileSplit0.questionNum[questionNumber][7],  btnNum1.w, btnNum4.y + btnNum4.h * 4, paint3);
-                canvas.drawText(FileSplit0.questionNum[questionNumber][8],  btnNum1.w, btnNum4.y + btnNum4.h * 4 + btnNum1.h , paint3);
+//                canvas.drawBitmap(explain, 8, btnNum4.y + btnNum4.h * 2 - 50, null);  //해설그림
+//                canvas.drawText(FileSplit0.questionNum[questionNumber][7],  btnNum1.w, btnNum4.y + btnNum4.h * 4, paint3);
+//                canvas.drawText(FileSplit0.questionNum[questionNumber][8],  btnNum1.w, btnNum4.y + btnNum4.h * 4 + btnNum1.h , paint3);
+                canvas.drawBitmap(explain, 8, Width *0.75f, null);  //해설그림
+                canvas.drawText(FileSplit0.questionNum[questionNumber][7],  Width *0.1f, Width *0.8f, paint3);
+                canvas.drawText(FileSplit0.questionNum[questionNumber][8],  Width *0.1f, Width *0.8f + btnNum1.h , paint3);
             }
 
             if (starIng == 1) {
